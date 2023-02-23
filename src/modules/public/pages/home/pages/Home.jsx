@@ -1,18 +1,15 @@
 import Cabecalho from "../../cabecalho/Cabecalho";
 import {} from '../../../styles/Reset.css'; 
+import MenuLateral from "../../menu-lateral/MenuLateral";
 
 export const Home = () => {
     return(
         <>
-        <Cabecalho/>
-        <section>
-            <h2>Corpo da pagina</h2>
-        </section>
-
+            <Cabecalho/>
+            <MenuLateral/>
         </>
         
-        
-        )
+    )
     
 };
 export default Home;

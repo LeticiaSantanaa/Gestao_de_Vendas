@@ -1,7 +1,7 @@
 .cabecalho{
     display: flex;
     justify-content: space-between;
-    background-color: var(--azul-escuro);
+    background-image: var(--azul-degrade);
     color: var(--branco);
     font-size: 18px;
     padding: 1rem;

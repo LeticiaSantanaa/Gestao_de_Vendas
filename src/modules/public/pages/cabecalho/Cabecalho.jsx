@@ -7,7 +7,7 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 export const Cabecalho = () => {
     return( 
             <header className="cabecalho">
-                 <button className='cabecalho__botao'><DehazeIcon/></button>
+                <button className='cabecalho__botao'><DehazeIcon/></button>
                 <h1>Gestão de Vendas</h1>
                 <AutoAwesomeIcon/>
             </header>
