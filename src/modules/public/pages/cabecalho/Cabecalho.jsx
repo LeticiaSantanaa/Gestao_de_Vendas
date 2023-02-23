@@ -1,5 +1,6 @@
-import {} from '../../styles/Cabecalho.css'
-import {} from '../../styles/EstiloGlobal.css'
+import {} from '../../styles/Cabecalho.css';
+import {} from '../../styles/EstiloGlobal.css';
+import {} from '../../styles/Reset.css' ;
 
 export const Cabecalho = () => {
     return( 

@@ -1,4 +1,5 @@
 import Cabecalho from "../../cabecalho/Cabecalho";
+import {} from '../../../styles/Reset.css'; 
 
 export const Home = () => {
     return(
