@@ -1,0 +1,29 @@
+.principal{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal-links{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem ;
+    padding: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.principal-links>li{
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 130px;
+    border: 2px solid var(--laranja);
+    font-family: var(--fonte-principal);
+    background-color: rgb(129, 129, 129);
+    font-weight: 700;
+
+}
