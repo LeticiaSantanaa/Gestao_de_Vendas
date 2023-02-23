@@ -15,7 +15,6 @@
 }
 
 .principal-links>li{
-    color: var(--branco);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +22,6 @@
     height: 130px;
     border: 2px solid var(--laranja);
     font-family: var(--fonte-principal);
-    background-color: rgb(129, 129, 129);
     font-weight: 700;
 
 }
