@@ -1,13 +1,28 @@
 :root{
+    --transparente: #ffffff00; 
     --branco: #ffffff;
     --preto:#000000;
-    --azul-mais-escuro:#00237D;
+    --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    --azul-muito-escuro: #002F52;
     --azul-escuro:#0055A3 ;
     --azul: #0B33C9;
     --azul-claro: #007ACC;
     --azul-muito-claro:#3699FF ;
+    --laranja: #EB9B00;
     --amarelo-muito-escuro:#B38C00;
-    --amarelo-escuro:#FFC900;
     --amarelo:#FFD919 ;
+    --cinza: #474646;
+    --cinza-claro:#858585;
+    --cor-de-fundo: #EBECEE;
 
+    --fonte-principal: "Poppins";
+    --fonte-secundaria:"josefin Sans";
+}
+
+
+body{
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
 }
