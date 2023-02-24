@@ -9,6 +9,7 @@
     color: var(--branco);
     font-family: sans-serif;
     font-weight: 500;
+
 }
 .lista-menu__link {
     background: var(--branco);
@@ -18,5 +19,5 @@
     padding-left: 1rem;
 }
 .lista-menu__item:hover{
-    background: var(--azul-muito-escuro); 
+    background: var(--azul-transparente); 
 }

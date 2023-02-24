@@ -15,13 +15,18 @@
 }
 
 .principal-links>li{
+    background-color: transparent;
+    color: var(--preto);
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 2px var(--cinza-claro);
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 130px;
-    border: 2px solid var(--laranja);
-    font-family: var(--fonte-principal);
-    font-weight: 700;
+    width: 240px;
+    height: 140px;
 
 }
