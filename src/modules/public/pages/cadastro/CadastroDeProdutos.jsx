@@ -27,6 +27,7 @@ export const CadastroDeProdutos = () => {
   const [codigo, setCodigo] = useState("");
   const [quantidade, setQuantidade] = useState([]);
   const [produto, setProduto] = useState([]);
+  const [preco, setPreco] = useState([]);
 
 
   const db = getFirestore(firebaseApp);
@@ -36,8 +37,10 @@ export const CadastroDeProdutos = () => {
     const user = await addDoc(userCollectionRef, {
       name, 
       codigo,
+      quantidade,
+      preco,
     });
-    console.log(name);
+
   }
 
   useEffect(() => {
@@ -84,18 +87,24 @@ export const CadastroDeProdutos = () => {
               />
               
               <TextField 
-              label="Quantidade" 
-              variant="standard"               
-              className="principal__inputs-cadastro"
-              required
-  />
+                required
+                label="Quantidade" 
+                variant="standard" 
+                type="number"
+                value={quantidade}       
+                onChange={(e) => setQuantidade(e.target.value)}        
+                className="principal__inputs-cadastro"
+              />
               <TextField 
               required
               label="Preço" 
               variant="standard" 
               className="principal__inputs-cadastro"
+              type="number" 
+              value={preco} 
+              onChange={(e) => setPreco(e.target.value)}
               
-  />
+              />
 
 
                 <Button             
@@ -106,7 +115,7 @@ export const CadastroDeProdutos = () => {
                 >
                     Cadastrar
                 </Button>
-  {/* 
+{/*   
                 <ul>
                   {produto.map((user) => {
                     return(
@@ -114,6 +123,8 @@ export const CadastroDeProdutos = () => {
                       <div key={user.id}>
                         <li>{user.name}</li>
                         <li>{user.codigo}</li>
+                        <li>{user.quantidade}</li>
+                        <li>{user.preco}</li>
                         <button onClick={() => deleteUsers(user.id)}>Deletar</button>
                       </div>
                     );

@@ -68,3 +68,89 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+
+
+
+
+  return(
+    <div> 
+          <Cabecalho/>
+          
+          <main className="principal">
+          <MenuLateral/>
+          <section className="principal-secao-de-cadastro">
+            <fieldset className="principal__container-cadastro">
+              <h1>Cadastrar Produto</h1>
+
+                <TextField 
+                label="Nome" 
+                variant="standard"
+                className="principal__inputs-cadastro"
+                type="text" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} 
+                required
+                />
+
+                <TextField 
+                label="Código" 
+                variant="standard"
+                className="principal__inputs-cadastro"
+                type="text" 
+                value={codigo} 
+                onChange={(e) => setCodigo(e.target.value)}
+                required
+              />
+              
+              <TextField 
+              label="Quantidade" 
+              variant="standard"               
+              className="principal__inputs-cadastro"
+              required
+  />
+              <TextField 
+              required
+              label="Preço" 
+              variant="standard" 
+              className="principal__inputs-cadastro"
+              
+  />
+
+
+                <Button             
+                  className="principal__botao-cadastrar"
+                  type="submit"
+                  variant="contained" 
+                  onClick={criarUser}
+                >
+                    Cadastrar
+                </Button>
+{/* 
+                <ul>
+                  {produto.map((user) => {
+                    return(
+                      
+                      <div key={user.id}>
+                        <li>{user.name}</li>
+                        <li>{user.codigo}</li>
+                        <button onClick={() => deleteUsers(user.id)}>Deletar</button>
+                      </div>
+                    );
+                  })}
+                </ul>   */}
+            </fieldset>
+          </section>
+          
+         
+      </main>
+    </div>
+  );
+};
+ export default CadastroDeProdutos;
