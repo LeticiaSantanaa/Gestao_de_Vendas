@@ -69,7 +69,9 @@ export const CadastroDeProdutos = () => {
                 className="principal__inputs-cadastro"
                 type="text" 
                 value={name} 
-                onChange={(e) => setName(e.target.value)} />
+                onChange={(e) => setName(e.target.value)} 
+                required
+                />
 
                 <TextField 
                 label="Código" 
@@ -78,19 +80,27 @@ export const CadastroDeProdutos = () => {
                 type="text" 
                 value={codigo} 
                 onChange={(e) => setCodigo(e.target.value)}
+                required
               />
               
               <TextField 
               label="Quantidade" 
               variant="standard"               
               className="principal__inputs-cadastro"
+              required
   />
-              <TextField label="Preço" variant="standard"               className="principal__inputs-cadastro"
+              <TextField 
+              required
+              label="Preço" 
+              variant="standard" 
+              className="principal__inputs-cadastro"
+              
   />
 
 
                 <Button             
                   className="principal__botao-cadastrar"
+                  type="submit"
                   variant="contained" 
                   onClick={criarUser}
                 >
