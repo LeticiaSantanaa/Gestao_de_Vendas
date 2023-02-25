@@ -10,7 +10,7 @@
     align-items: center;
     gap: 1rem;
     width: 43rem;
-    height: 30rem;
+    height: 26rem;
     border-radius: 19px;
 
 }
@@ -18,6 +18,9 @@
     font-family: var(--fonte-principal);
     color: var(--azul-muito-escuro);
     border-bottom: 3px solid var(--amarelo);
+    padding-bottom: 10px;
+    width: 36%;
+    text-align: center;
 }
 .principal__inputs-cadastro{
     width: 30rem;

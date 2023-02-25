@@ -30,9 +30,7 @@ export const MenuLateral = () => {
                 <li class="lista-menu__item">
                     <EqualizerIcon/><a href="#" class="lista-menu__link">Relatórios</a>
                 </li>
-                <li class="lista-menu__item">
-                    <AccountCircleIcon/><a href="#" class="lista-menu__link">Perfil</a>
-                </li>
+                
                 <li class="lista-menu__item">
                     <LogoutIcon/><a href="#" class="lista-menu__link">Sair</a>
                 </li>
