@@ -11,6 +11,9 @@ import {} from "../../styles/CadastroDeProdutos.css";
 import {} from "../../styles/EstiloGlobal.css";
 import Cabecalho from "../cabecalho/Cabecalho";
 import MenuLateral from "../menu-lateral/MenuLateral";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 
 const firebaseApp = initializeApp ({
   apiKey: "AIzaSyChFtHWpfGqZgCAs_Ur2t6Lm_wIpnnOCIQ",
@@ -21,16 +24,18 @@ const firebaseApp = initializeApp ({
 export const CadastroDeProdutos = () => {
 
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [users, setUsers] = useState([]);
+  const [codigo, setCodigo] = useState("");
+  const [quantidade, setQuantidade] = useState([]);
+  const [produto, setProduto] = useState([]);
+
 
   const db = getFirestore(firebaseApp);
-  const userCollectionRef = collection(db, "users");
+  const userCollectionRef = collection(db, "produto");
 
   async function criarUser(){
     const user = await addDoc(userCollectionRef, {
       name, 
-      email,
+      codigo,
     });
     console.log(name);
   }
@@ -38,13 +43,13 @@ export const CadastroDeProdutos = () => {
   useEffect(() => {
     const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
-      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setProduto(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getUsers();
   },[]);
 
   async function deleteUsers(id){
-    const userDoc = doc(db, 'users', id);
+    const userDoc = doc(db, 'produto', id);
     await deleteDoc(userDoc);
   }
 
@@ -54,32 +59,59 @@ export const CadastroDeProdutos = () => {
           
           <main className="principal">
           <MenuLateral/>
-          <fieldset>
-          <input 
-          type="text" 
-          placeholder="Nome..." 
-          value={name} 
-          onChange={(e) => setName(e.target.value)}
-          />
-          <input
-          type="text" 
-          placeholder="email..."
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)}
-          />
-          <button onClick={criarUser}>Criar User</button>
-          <ul>
-            {users.map((user) => {
-              return(
-                <div key={user.id}>
-                  <li>{user.name}</li>
-                  <li>{user.email}</li>
-                  <button onClick={() => deleteUsers(user.id)}>Deletar</button>
-                </div>
-              );
-            })}
-          </ul>
-          </fieldset>
+          <section className="principal-secao-de-cadastro">
+            <fieldset className="principal__container-cadastro">
+              <h1>Cadastrar Produto</h1>
+
+                <TextField 
+                label="Nome" 
+                variant="standard"
+                className="principal__inputs-cadastro"
+                type="text" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} />
+
+                <TextField 
+                label="Código" 
+                variant="standard"
+                className="principal__inputs-cadastro"
+                type="text" 
+                value={codigo} 
+                onChange={(e) => setCodigo(e.target.value)}
+              />
+              
+              <TextField 
+              label="Quantidade" 
+              variant="standard"               
+              className="principal__inputs-cadastro"
+  />
+              <TextField label="Preço" variant="standard"               className="principal__inputs-cadastro"
+  />
+
+
+                <Button             
+                  className="principal__botao-cadastrar"
+                  variant="contained" 
+                  onClick={criarUser}
+                >
+                    Cadastrar
+                </Button>
+  {/* 
+                <ul>
+                  {produto.map((user) => {
+                    return(
+                      
+                      <div key={user.id}>
+                        <li>{user.name}</li>
+                        <li>{user.codigo}</li>
+                        <button onClick={() => deleteUsers(user.id)}>Deletar</button>
+                      </div>
+                    );
+                  })}
+                </ul>  */}
+            </fieldset>
+          </section>
+          
          
       </main>
     </div>

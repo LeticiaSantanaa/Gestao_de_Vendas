@@ -16,8 +16,9 @@
     --cinza: #474646;
     --cinza-claro:#858585;
     --cor-de-fundo: #EBECEE;
+    --sombra: #8585856c;
 
-    --fonte-principal: "sans-serif";
+    --fonte-principal: sans-serif;
     --fonte-secundaria:"josefin Sans";
 }
 

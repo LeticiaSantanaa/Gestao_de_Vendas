@@ -1,2 +1,30 @@
-.principal-cadastro{
+.principal-secao-de-cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.principal__container-cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 43rem;
+    height: 30rem;
+    border-radius: 19px;
+
+}
+.principal__container-cadastro>h1{
+    font-family: var(--fonte-principal);
+    color: var(--azul-muito-escuro);
+    border-bottom: 3px solid var(--amarelo);
+}
+.principal__inputs-cadastro{
+    width: 30rem;
+}
+
+.principal__botao-cadastrar{
+    width: 18rem;
+    height: 2rem;
+    background: var(--azul-degrade);
 }
