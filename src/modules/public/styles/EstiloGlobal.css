@@ -12,6 +12,7 @@
     --laranja: #EB9B00;
     --amarelo-muito-escuro:#B38C00;
     --amarelo:#FFD919 ;
+    --vermelho: rgb(202, 0, 0);
     --cinza: #474646;
     --cinza-claro:#858585;
     --cor-de-fundo: #EBECEE;
@@ -24,4 +25,9 @@
 body{
     background-color: var(--cor-de-fundo);
   
+}
+.principal{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    
 }

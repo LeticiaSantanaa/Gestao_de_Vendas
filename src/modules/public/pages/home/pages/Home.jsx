@@ -2,6 +2,7 @@ import Cabecalho from "../../cabecalho/Cabecalho";
 import {} from "../../../styles/Home.css";
 import {} from '../../../styles/Reset.css'; 
 import MenuLateral from "../../menu-lateral/MenuLateral";
+import SearchIcon from '@mui/icons-material/Search';
 
 export const Home = () => {
     return(
@@ -9,16 +10,12 @@ export const Home = () => {
             <Cabecalho/>
             <main className="principal">
             <MenuLateral/>
-        
-                <ul className="principal-links">
-                    <li>Balcão de Vendas</li>
-                    <li>Movimento Financeiro</li>
-                    <li>Cadastro de Produtos</li>
-                    <li>Estoque</li>
-                    <li>Relatórios</li>
-                    <li>Perfil</li>
-                    
-                </ul>
+            <section className="principal-bloco-pesquisa">
+            
+                    <label><SearchIcon/></label>
+                    <input type="text" placeholder="Pesquisar Produto"/>
+                
+            </section>
             </main>
         </>
         

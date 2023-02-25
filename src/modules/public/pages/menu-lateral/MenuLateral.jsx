@@ -13,17 +13,16 @@ export const MenuLateral = () => {
         <>
         
             <ul class="lista-menu">
-            <li class="lista-menu__item">
-                   <HomeIcon/> <a href="#" class="lista-menu__link">Home</a>
-                </li>
+                <div className="Logo"></div>
+           
                 <li class="lista-menu__item">
-                   <ReceiptIcon/> <a href="#" class="lista-menu__link">Balcão de Vendas</a>
+                   <ReceiptIcon/> <a href="/" class="lista-menu__link">Balcão de Vendas</a>
                 </li>
                 <li class="lista-menu__item">
                     <CurrencyExchangeIcon /><a href="#" class="lista-menu__link">Movimento Financeiro</a>
                 </li>
                 <li class="lista-menu__item">
-                    <BallotIcon/><a href="#" class="lista-menu__link">Cadastro de Produtos</a>
+                    <BallotIcon/><a href="/cadastroDeProdutos" class="lista-menu__link">Cadastro de Produtos</a>
                 </li>
                 <li class="lista-menu__item">
                     <GradingIcon/><a href="#" class="lista-menu__link">Estoque</a>

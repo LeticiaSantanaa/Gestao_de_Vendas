@@ -1,9 +1,21 @@
+.Logo{
+    background-image: url("../../../assets/Logo.jpeg");
+    height: 22rem;
+    background-size: 20.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--azul-muito-escuro);
+    width: 322px;
+    height: 160px;
+}
 .lista-menu {
     width: 25vw;
 }
 .lista-menu__item {
     padding: 1em;
-    background: var(--azul-degrade);
+    background-color: #011c3a;
+    width: 290px;
+    height: 24.6px;
     display: flex;
     align-items: center;
     color: var(--branco);

@@ -7,6 +7,10 @@ import { getFirestore,
    deleteDoc,
   } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import {} from "../../styles/CadastroDeProdutos.css";
+import {} from "../../styles/EstiloGlobal.css";
+import Cabecalho from "../cabecalho/Cabecalho";
+import MenuLateral from "../menu-lateral/MenuLateral";
 
 const firebaseApp = initializeApp ({
   apiKey: "AIzaSyChFtHWpfGqZgCAs_Ur2t6Lm_wIpnnOCIQ",
@@ -45,31 +49,39 @@ export const CadastroDeProdutos = () => {
   }
 
   return(
-    <div>
-      <input 
-      type="text" 
-      placeholder="Nome..." 
-      value={name} 
-      onChange={(e) => setName(e.target.value)}
-      />
-      <input
-      type="text" 
-      placeholder="email..."
-      value={email} 
-      onChange={(e) => setEmail(e.target.value)}
-      />
-      <button onClick={criarUser}>Criar User</button>
-      <ul>
-        {users.map((user) => {
-          return(
-            <div key={user.id}>
-              <li>{user.name}</li>
-              <li>{user.email}</li>
-              <button onClick={() => deleteUsers(user.id)}>Deletar</button>
-            </div>
-          );
-        })}
-      </ul>
+    <div> 
+          <Cabecalho/>
+          
+          <main className="principal">
+          <MenuLateral/>
+          <fieldset>
+          <input 
+          type="text" 
+          placeholder="Nome..." 
+          value={name} 
+          onChange={(e) => setName(e.target.value)}
+          />
+          <input
+          type="text" 
+          placeholder="email..."
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)}
+          />
+          <button onClick={criarUser}>Criar User</button>
+          <ul>
+            {users.map((user) => {
+              return(
+                <div key={user.id}>
+                  <li>{user.name}</li>
+                  <li>{user.email}</li>
+                  <button onClick={() => deleteUsers(user.id)}>Deletar</button>
+                </div>
+              );
+            })}
+          </ul>
+          </fieldset>
+         
+      </main>
     </div>
   );
 };
