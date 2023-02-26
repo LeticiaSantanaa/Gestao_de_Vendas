@@ -2,13 +2,16 @@
 
 .principal-bloco-pesquisa{
     display: flex;
+    flex-direction: column;
     align-items: center;
     height: 30px;
     justify-content: center;
-    margin-top: 12%;
+    margin-top: 8%;
 }
-
-.principal-bloco-pesquisa>label{
+.principal-bloco-pesquisa>div{
+    display: flex;
+}
+.principal-bloco-pesquisa>div>label{
     border: 1px solid var(--cinza);
     width: 50px;
     height: 1.7rem;
@@ -21,8 +24,32 @@
     color: var(--branco);
     
 }
-.principal-bloco-pesquisa>input{
+.principal-bloco-pesquisa>div>input{
     width: 30rem;
     height: 1.5rem;
     
+}
+
+.principal-bloco__tiulos-da-lista{
+    margin: 5% 0 0 0;
+    display: flex;
+    
+}
+.principal-bloco__tiulos-da-lista>li{
+    text-align: center;
+    border: 1px solid var(--cinza);
+    width: 140px;
+    padding: .5rem;
+}
+
+.principal-tabela>tr>td{
+    border: 1px solid var(--cinza);
+    width: 146.8px;
+    padding: 5px;
+}
+.principal>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }

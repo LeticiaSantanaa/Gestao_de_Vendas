@@ -4,7 +4,6 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import BallotIcon from '@mui/icons-material/Ballot';
 import GradingIcon from '@mui/icons-material/Grading';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
 
