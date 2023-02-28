@@ -11,27 +11,27 @@ export const MenuLateral = () => {
     return(
         <>
         
-            <ul class="lista-menu">
+            <ul className="lista-menu">
                 <div className="Logo"></div>
            
-                <li class="lista-menu__item">
-                   <ReceiptIcon/> <a href="/" class="lista-menu__link">Balcão de Vendas</a>
+                <li className="lista-menu__item">
+                   <ReceiptIcon/> <a href="/" className="lista-menu__link">Balcão de Vendas</a>
                 </li>
-                <li class="lista-menu__item">
-                    <CurrencyExchangeIcon /><a href="#" class="lista-menu__link">Movimento Financeiro</a>
+                <li className="lista-menu__item">
+                    <CurrencyExchangeIcon /><a href="#" className="lista-menu__link">Movimento Financeiro</a>
                 </li>
-                <li class="lista-menu__item">
-                    <BallotIcon/><a href="/cadastroDeProdutos" class="lista-menu__link">Cadastro de Produtos</a>
+                <li className="lista-menu__item">
+                    <BallotIcon/><a href="/cadastroDeProdutos" className="lista-menu__link">Cadastro de Produtos</a>
                 </li>
-                <li class="lista-menu__item">
-                    <GradingIcon/><a href="#" class="lista-menu__link">Estoque</a>
+                <li className="lista-menu__item">
+                    <GradingIcon/><a href="#" className="lista-menu__link">Estoque</a>
                 </li>
-                <li class="lista-menu__item">
-                    <EqualizerIcon/><a href="#" class="lista-menu__link">Relatórios</a>
+                <li className="lista-menu__item">
+                    <EqualizerIcon/><a href="#" className="lista-menu__link">Relatórios</a>
                 </li>
                 
-                <li class="lista-menu__item">
-                    <LogoutIcon/><a href="#" class="lista-menu__link">Sair</a>
+                <li className="lista-menu__item">
+                    <LogoutIcon/><a href="#" className="lista-menu__link">Sair</a>
                 </li>
             </ul>        
         </>

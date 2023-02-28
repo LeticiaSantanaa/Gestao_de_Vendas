@@ -31,6 +31,7 @@ const firebaseApp = initializeApp ({
 export const Home = () => {
     const [produto, setProduto] = useState([]);
 
+    
     const db = getFirestore(firebaseApp);
     const userCollectionRef = collection(db, "produto");
   
@@ -41,7 +42,11 @@ export const Home = () => {
         };
         getUsers();
       },[]);
-    
+
+      // const [lista, setLista] = ([]);
+
+      // const listaOrdenada = lista.sort(Intl.Collator().compare);
+
     return(
       <>
             <Cabecalho/>
@@ -54,6 +59,13 @@ export const Home = () => {
                             <input type="text" placeholder="Pesquisar Produto"/> 
                         </div>
                 </section>   
+{/* 
+                {produto.map((user) => (
+                    <ul key={user.id}>
+                        <li>{user.name}</li>
+                    </ul>
+                  
+                ))} */}
                 <TableContainer 
                     component={Paper} 
                     style={{minHeight:350, marginTop:"3%", width:750}}
@@ -74,16 +86,15 @@ export const Home = () => {
                             <TableBody>
                                 {produto.map((user) => (
                             <TableRow
-                            key={user.nome}
+                             key={user.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            
                           >
-                            <TableCell component="th" scope="row">
-                              {user.codigo}
-                            </TableCell>
+                            <TableCell component="th" scope="row">{user.codigo}</TableCell>
                             <TableCell align="left" >{user.name}</TableCell>
                             <TableCell align="left">{user.quantidade}</TableCell>
                             <TableCell align="left">{user.preco}</TableCell>
+                            
+
                           </TableRow>
                         
                                 ))}
