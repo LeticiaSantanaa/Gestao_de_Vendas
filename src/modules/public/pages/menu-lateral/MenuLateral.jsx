@@ -18,7 +18,7 @@ export const MenuLateral = () => {
                    <ReceiptIcon/> <a href="/" className="lista-menu__link">Balcão de Vendas</a>
                 </li>
                 <li className="lista-menu__item">
-                    <CurrencyExchangeIcon /><a href="#" className="lista-menu__link">Movimento Financeiro</a>
+                    <CurrencyExchangeIcon /><a href="/movimentoFinanceiro" className="lista-menu__link">Movimento Financeiro</a>
                 </li>
                 <li className="lista-menu__item">
                     <BallotIcon/><a href="/cadastroDeProdutos" className="lista-menu__link">Cadastro de Produtos</a>

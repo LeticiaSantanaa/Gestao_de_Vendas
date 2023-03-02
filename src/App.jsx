@@ -6,6 +6,7 @@ import Cabecalho from './modules/public/pages/cabecalho/Cabecalho';
 import CadastroDeProdutos from './modules/public/pages/cadastro/CadastroDeProdutos';
 import Estoque from './modules/public/pages/estoque/Estoque';
 import Relatorio from './modules/public/pages/relatorio/Relatorio';
+import MovimentoFinanceiro from './modules/public/pages/movimentoFinanceiro/MovimentoFinanceiro';
 
 export const App = () => {
     return(
@@ -18,6 +19,8 @@ export const App = () => {
              <Route path="/cadastroDeProdutos" element={ <CadastroDeProdutos /> } />
              <Route path="/estoque" element={ <Estoque /> } />
              <Route path="/relatorio" element={ <Relatorio /> } />
+             <Route path="/movimentoFinanceiro" element={ <MovimentoFinanceiro /> } />
+
              
               
             </Routes> 
