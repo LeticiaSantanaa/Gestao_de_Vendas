@@ -27,7 +27,7 @@ export const MenuLateral = () => {
                     <GradingIcon/><a href="/estoque" className="lista-menu__link">Estoque</a>
                 </li>
                 <li className="lista-menu__item">
-                    <EqualizerIcon/><a href="#" className="lista-menu__link">Relatórios</a>
+                    <EqualizerIcon/><a href="/relatorio" className="lista-menu__link">Relatórios</a>
                 </li>
                 
                 <li className="lista-menu__item">
