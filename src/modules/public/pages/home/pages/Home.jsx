@@ -29,23 +29,22 @@ const firebaseApp = initializeApp ({
 
 
 export const Home = () => {
-    const [produto, setProduto] = useState([]);
+    const [listaDeProdutos, setListaDeProdutos] = useState([]);
+    const [busca, setBusca] = useState("");
 
     
     const db = getFirestore(firebaseApp);
-    const userCollectionRef = collection(db, "produto");
+    const userCollectionRef = collection(db, "listaDeProdutos");
   
     useEffect(() => {
         const getUsers = async () => {
           const data = await getDocs(userCollectionRef);
-          setProduto(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+          setListaDeProdutos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
         getUsers();
       },[]);
 
-      // const [lista, setLista] = ([]);
-
-      // const listaOrdenada = lista.sort(Intl.Collator().compare);
+      // const produtosFiltrados = listaDeProdutos.filter((user) => user.startsWith(busca));
 
     return(
       <>
@@ -56,16 +55,13 @@ export const Home = () => {
                 <section className="principal-bloco-pesquisa"> 
                         <div>
                             <label><SearchIcon/></label>
-                            <input type="text" placeholder="Pesquisar Produto"/> 
+                            <input 
+                                type="text" 
+                                placeholder="Pesquisar Produto" 
+                                value={busca}
+                                onChange={(e) => setBusca(e.target.value)}/> 
                         </div>
                 </section>   
-{/* 
-                {produto.map((user) => (
-                    <ul key={user.id}>
-                        <li>{user.name}</li>
-                    </ul>
-                  
-                ))} */}
                 <TableContainer 
                     component={Paper} 
                     style={{minHeight:350, marginTop:"3%", width:750}}
@@ -84,15 +80,15 @@ export const Home = () => {
                               </TableRow>
                             </TableHead>
                             <TableBody>
-                                {produto.map((user) => (
+                                {listaDeProdutos.map((user) => (
                             <TableRow
                              key={user.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                           >
                             <TableCell component="th" scope="row">{user.codigo}</TableCell>
-                            <TableCell align="left" >{user.name}</TableCell>
+                            <TableCell align="left" >{user.nome}</TableCell>
                             <TableCell align="left">{user.quantidade}</TableCell>
-                            <TableCell align="left">{user.preco}</TableCell>
+                            <TableCell align="left">{user.valor}</TableCell>
                             
 
                           </TableRow>

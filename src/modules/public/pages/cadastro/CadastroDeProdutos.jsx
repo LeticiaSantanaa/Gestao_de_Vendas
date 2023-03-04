@@ -23,37 +23,37 @@ const firebaseApp = initializeApp ({
 
 export const CadastroDeProdutos = () => {
 
-  const [name, setName] = useState("");
+  const [nome, setNome] = useState("");
   const [codigo, setCodigo] = useState("");
   const [quantidade, setQuantidade] = useState([]);
-  const [produto, setProduto] = useState([]);
-  const [preco, setPreco] = useState([]);
+  const [setListaDeProdutos] = useState([]);
+  const [valor, setValor] = useState([]);
 
 
   const db = getFirestore(firebaseApp);
-  const userCollectionRef = collection(db, "produto");
+  const produtoCollectionRef = collection(db, "listaDeProdutos");
 
-  async function criarUser(){
-    const user = await addDoc(userCollectionRef, {
-      name, 
+  async function cadastrarProduto(){
+    const produto = await addDoc(produtoCollectionRef, {
+      nome, 
       codigo,
       quantidade,
-      preco,
+      valor,
     });
 
   }
 
   useEffect(() => {
-    const getUsers = async () => {
-      const data = await getDocs(userCollectionRef);
-      setProduto(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const getProduto = async () => {
+      const data = await getDocs(produtoCollectionRef);
+      setListaDeProdutos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    getUsers();
+    getProduto();
   },[]);
 
-  async function deleteUsers(id){
-    const userDoc = doc(db, 'produto', id);
-    await deleteDoc(userDoc);
+  async function deleteProduto(id){
+    const produtoDoc = doc(db, 'produto', id);
+    await deleteDoc(produtoDoc);
   }
 
   return(
@@ -71,8 +71,8 @@ export const CadastroDeProdutos = () => {
                 variant="standard"
                 className="principal__inputs-cadastro"
                 type="text" 
-                value={name} 
-                onChange={(e) => setName(e.target.value)} 
+                value={nome} 
+                onChange={(e) => setNome(e.target.value)} 
                 required
                 />
 
@@ -101,8 +101,8 @@ export const CadastroDeProdutos = () => {
               variant="standard" 
               className="principal__inputs-cadastro"
               type="number" 
-              value={preco} 
-              onChange={(e) => setPreco(e.target.value)}
+              value={valor} 
+              onChange={(e) => setValor(e.target.value)}
               
               />
 
@@ -111,21 +111,21 @@ export const CadastroDeProdutos = () => {
                   className="principal__botao-cadastrar"
                   type="submit"
                   variant="contained" 
-                  onClick={criarUser}
+                  onClick={cadastrarProduto}
                 >
                     Cadastrar
                 </Button>
 {/*   
                 <ul>
-                  {produto.map((user) => {
+                  {produto.map((produto) => {
                     return(
                       
-                      <div key={user.id}>
-                        <li>{user.name}</li>
-                        <li>{user.codigo}</li>
-                        <li>{user.quantidade}</li>
-                        <li>{user.preco}</li>
-                        <button onClick={() => deleteUsers(user.id)}>Deletar</button>
+                      <div key={produto.id}>
+                        <li>{produto.nome}</li>
+                        <li>{produto.codigo}</li>
+                        <li>{produto.quantidade}</li>
+                        <li>{produto.valor}</li>
+                        <button onClick={() => deleteProduto(produto.id)}>Deletar</button>
                       </div>
                     );
                   })}
