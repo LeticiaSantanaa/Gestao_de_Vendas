@@ -9,8 +9,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 export const MenuLateral = () => {
     return(
-        <>
-        
+        <>        
             <ul className="lista-menu">
                 <div className="Logo"></div>
            
@@ -28,8 +27,7 @@ export const MenuLateral = () => {
                 </li>
                 <li className="lista-menu__item">
                     <EqualizerIcon/><a href="/relatorio" className="lista-menu__link">Relatórios</a>
-                </li>
-                
+                </li>                
                 <li className="lista-menu__item">
                     <LogoutIcon/><a href="#" className="lista-menu__link">Sair</a>
                 </li>
