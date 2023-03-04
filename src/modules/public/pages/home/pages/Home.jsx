@@ -34,17 +34,17 @@ export const Home = () => {
 
     
     const db = getFirestore(firebaseApp);
-    const userCollectionRef = collection(db, "listaDeProdutos");
+    const produtoCollectionRef = collection(db, "listaDeProdutos");
   
     useEffect(() => {
-        const getUsers = async () => {
-          const data = await getDocs(userCollectionRef);
+        const getProduto = async () => {
+          const data = await getDocs(produtoCollectionRef);
           setListaDeProdutos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
-        getUsers();
+        getProduto();
       },[]);
 
-      // const produtosFiltrados = listaDeProdutos.filter((user) => user.startsWith(busca));
+       //const produtosFiltrados = listaDeProdutos.filter((produto) => produto.startsWith(busca));
 
     return(
       <>
@@ -80,15 +80,15 @@ export const Home = () => {
                               </TableRow>
                             </TableHead>
                             <TableBody>
-                                {listaDeProdutos.map((user) => (
+                                {listaDeProdutos.map((produto) => (
                             <TableRow
-                             key={user.id}
+                             key={produto.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                           >
-                            <TableCell component="th" scope="row">{user.codigo}</TableCell>
-                            <TableCell align="left" >{user.nome}</TableCell>
-                            <TableCell align="left">{user.quantidade}</TableCell>
-                            <TableCell align="left">{user.valor}</TableCell>
+                            <TableCell component="th" scope="row">{produto.codigo}</TableCell>
+                            <TableCell align="left" >{produto.nome}</TableCell>
+                            <TableCell align="left">{produto.quantidade}</TableCell>
+                            <TableCell align="left">{produto.valor}</TableCell>
                             
 
                           </TableRow>

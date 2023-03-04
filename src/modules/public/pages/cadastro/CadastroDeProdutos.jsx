@@ -51,10 +51,10 @@ export const CadastroDeProdutos = () => {
     getProduto();
   },[]);
 
-  async function deleteProduto(id){
-    const produtoDoc = doc(db, 'produto', id);
-    await deleteDoc(produtoDoc);
-  }
+  // async function deleteProduto(id){
+  //   const produtoDoc = doc(db, 'produto', id);
+  //   await deleteDoc(produtoDoc);
+  // }
 
   return(
     <div> 
