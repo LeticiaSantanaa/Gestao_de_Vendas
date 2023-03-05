@@ -19,6 +19,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Search } from "@mui/icons-material";
 
 
 const firebaseApp = initializeApp ({
@@ -31,6 +32,14 @@ const firebaseApp = initializeApp ({
 export const Home = () => {
     const [listaDeProdutos, setListaDeProdutos] = useState([]);
     const [busca, setBusca] = useState("");
+    const buscaDeLetrasMinusculas = busca.toLowerCase();
+    
+    const lista = listaDeProdutos.filter(
+     ( produto) => 
+     produto.nome.toLowerCase().includes(buscaDeLetrasMinusculas) 
+     || 
+     produto.codigo.includes(busca)
+     );
 
     
     const db = getFirestore(firebaseApp);
@@ -56,7 +65,7 @@ export const Home = () => {
                         <div>
                             <label><SearchIcon/></label>
                             <input 
-                                type="text" 
+                                type="search" 
                                 placeholder="Pesquisar Produto" 
                                 value={busca}
                                 onChange={(e) => setBusca(e.target.value)}/> 
@@ -80,7 +89,7 @@ export const Home = () => {
                               </TableRow>
                             </TableHead>
                             <TableBody>
-                                {listaDeProdutos.map((produto) => (
+                                {lista.map((produto) => (
                             <TableRow
                              key={produto.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
