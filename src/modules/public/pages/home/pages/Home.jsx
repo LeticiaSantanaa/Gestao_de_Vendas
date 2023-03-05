@@ -1,4 +1,4 @@
-      import Cabecalho from "../../cabecalho/Cabecalho";
+import Cabecalho from "../../cabecalho/Cabecalho";
 import {} from "../../../styles/Home.css";
 import {} from '../../../styles/Reset.css'; 
 import MenuLateral from "../../menu-lateral/MenuLateral";
@@ -8,6 +8,9 @@ import { initializeApp } from "firebase/app";
 import { getFirestore,
    getDocs,
    collection,
+   addDoc,
+   doc,
+   deleteDoc,
 
   } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -19,7 +22,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Search } from "@mui/icons-material";
+import { Checkbox } from "@mui/material";
 
 
 const firebaseApp = initializeApp ({
@@ -34,6 +37,7 @@ export const Home = () => {
     const [busca, setBusca] = useState("");
     const buscaDeLetrasMinusculas = busca.toLowerCase();
     
+
     const lista = listaDeProdutos.filter(
      ( produto) => 
      produto.nome.toLowerCase().includes(buscaDeLetrasMinusculas) 
@@ -41,7 +45,6 @@ export const Home = () => {
      produto.codigo.includes(busca)
      );
 
-    
     const db = getFirestore(firebaseApp);
     const produtoCollectionRef = collection(db, "listaDeProdutos");
   
@@ -53,7 +56,17 @@ export const Home = () => {
         getProduto();
       },[]);
 
-       //const produtosFiltrados = listaDeProdutos.filter((produto) => produto.startsWith(busca));
+        async function deleteProduto(id){
+        const produtoDoc = doc(db, 'listaDeProdutos', id);
+        await deleteDoc(produtoDoc);
+      } 
+
+      // var nome = ['Leticia', 'Beatriz', 'Ana']
+      // const listaOrdenada = nome.sort(Intl.Collator().compare)
+      async function selecionarProduto(id){
+        const selecionarProdutoDoc = doc(db, 'listaDeProdutos', id);
+        await addDoc(selecionarProdutoDoc);
+      }
 
     return(
       <>
@@ -81,26 +94,32 @@ export const Home = () => {
                           >
                             <TableHead>
                               <TableRow >
-                                <TableCell 
-                                align="left">Código</TableCell>
-                                <TableCell align="left">Nome </TableCell>
-                                <TableCell align="left">Estoque</TableCell>
-                                <TableCell align="left">Valor</TableCell>
+                                    <TableCell align="left">Código</TableCell>
+                                    <TableCell align="left">Nome </TableCell>
+                                    <TableCell align="left">Estoque</TableCell>
+                                    <TableCell align="left">Valor</TableCell>
+                                    <TableCell align="center">Selecionar</TableCell>
+
                               </TableRow>
                             </TableHead>
-                            <TableBody>
-                                {lista.map((produto) => (
-                            <TableRow
-                             key={produto.id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                          >
-                            <TableCell component="th" scope="row">{produto.codigo}</TableCell>
-                            <TableCell align="left" >{produto.nome}</TableCell>
-                            <TableCell align="left">{produto.quantidade}</TableCell>
-                            <TableCell align="left">{produto.valor}</TableCell>
-                            
+                              <TableBody>
+                                    {lista.map((produto) => (
+                              <TableRow
+                                key={produto.id}
+                               >
 
-                          </TableRow>
+                                <TableCell component="th" scope="row">{produto.codigo}</TableCell>
+                                <TableCell align="left" >{produto.nome}</TableCell>
+                                <TableCell align="left">{produto.quantidade}</TableCell>
+                                <TableCell align="left">{produto.valor}</TableCell>
+                                <TableCell align="center">
+                                  <input type="Checkbox" onClick={() => selecionarProduto(produto.id)}/>
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    <button onClick={() => deleteProduto(produto.id)}>Deletar</button>
+                                  </TableCell>
+
+                               </TableRow>
                         
                                 ))}
                         

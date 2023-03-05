@@ -1,3 +1,7 @@
+.lista-menu{
+    /* position: fixed; */
+    margin-top: 18%;
+}
 .Logo{
     background-image: url("../../../assets/Logo.jpeg");
     height: 22rem;
