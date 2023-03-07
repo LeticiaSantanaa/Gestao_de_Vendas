@@ -78,7 +78,6 @@ const firebaseApp = initializeApp ({
               <MenuLateral/>
               <div>
                 <section className="principal-bloco-pesquisa"> 
-                <h2>Estoque</h2>
 
                         <div>
                             <label><SearchIcon/></label>
