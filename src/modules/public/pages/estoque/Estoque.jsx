@@ -1,10 +1,74 @@
 import Cabecalho from "../cabecalho/Cabecalho";
 import {} from "../home/pages/Home";
+import {} from "../../styles/Estoque.css";
 import {} from '../../styles/Reset.css'; 
 import MenuLateral from "../menu-lateral/MenuLateral";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import SearchIcon from '@mui/icons-material/Search';
 
+import { initializeApp } from "firebase/app";
+import { getFirestore,
+   getDocs,
+   collection,
+   addDoc,
+   doc,
+   deleteDoc,
+
+  } from "firebase/firestore";
+import { useEffect, useState } from "react";
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 export const Estoque = () => {
+
+const firebaseApp = initializeApp ({
+  apiKey: "AIzaSyChFtHWpfGqZgCAs_Ur2t6Lm_wIpnnOCIQ",
+  authDomain: "gestaodevendas-815fc.firebaseapp.com",
+  projectId: "gestaodevendas-815fc",
+});
+
+
+    const [listaDeProdutos, setListaDeProdutos] = useState([]);
+    const [busca, setBusca] = useState("");
+    const buscaDeLetrasMinusculas = busca.toLowerCase();
+    
+
+    const lista = listaDeProdutos.filter(
+     ( produto) => 
+     produto.nome.toLowerCase().includes(buscaDeLetrasMinusculas) 
+     || 
+     produto.codigo.includes(busca)
+     );
+
+    const db = getFirestore(firebaseApp);
+    const produtoCollectionRef = collection(db, "listaDeProdutos");
+  
+    useEffect(() => {
+        const getProduto = async () => {
+          const data = await getDocs(produtoCollectionRef);
+          setListaDeProdutos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        };
+        getProduto();
+      },[]);
+
+        async function deleteProduto(id){
+        const produtoDoc = doc(db, 'listaDeProdutos', id);
+        await deleteDoc(produtoDoc);
+      } 
+
+      // var nome = ['Leticia', 'Beatriz', 'Ana']
+      // const listaOrdenada = nome.sort(Intl.Collator().compare)
+      async function selecionarProduto(id){
+        const selecionarProdutoDoc = doc(db, 'listaDeProdutos', id);
+        await addDoc(selecionarProdutoDoc);
+      }
     
 
     return(
@@ -14,12 +78,61 @@ export const Estoque = () => {
               <MenuLateral/>
               <div>
                 <section className="principal-bloco-pesquisa"> 
+                <h2>Estoque</h2>
+
                         <div>
                             <label><SearchIcon/></label>
-                            <input type="text" placeholder="Pesquisar Produto"/> 
+                            <input 
+                                type="search" 
+                                placeholder="Pesquisar Produto" 
+                                value={busca}
+                                onChange={(e) => setBusca(e.target.value)}/> 
                         </div>
-                </section>  
-                <h1>Estoque</h1> 
+                </section>   
+                <TableContainer 
+                    component={Paper} 
+                    style={{minHeight:350, marginTop:"3%", width:750}}
+                    >
+                          <Table 
+                          sx={{ width: 750 }} 
+                          aria-label="simple table"
+                          >
+                            <TableHead>
+                              <TableRow >
+                                    <TableCell align="left">Código</TableCell>
+                                    <TableCell align="left">Nome </TableCell>
+                                    <TableCell align="left">Estoque</TableCell>
+                                    <TableCell align="left">Valor</TableCell>
+                                    <TableCell align="left"></TableCell>
+                                    <TableCell align="left"></TableCell>
+
+
+                              </TableRow>
+                            </TableHead>
+                              <TableBody>
+                                    {lista.map((produto) => (
+                              <TableRow
+                                key={produto.id}
+                               >
+
+                                <TableCell component="th" scope="row">{produto.codigo}</TableCell>
+                                <TableCell align="left" >{produto.nome}</TableCell>
+                                <TableCell align="left">{produto.quantidade}</TableCell>
+                                <TableCell align="left">{produto.valor}</TableCell>
+                                  <TableCell align="center">
+                                  <button onClick={() => deleteProduto(produto.id)} className="btn-deletar"><DeleteIcon/></button>
+                                  </TableCell>
+                                  <TableCell align="center">
+                                    <button className="btn-editar" ><EditIcon/></button>
+                                  </TableCell>
+
+                               </TableRow>
+                        
+                                ))}
+                        
+                            </TableBody>
+                          </Table>
+                </TableContainer>
               </div>
 
             </main>

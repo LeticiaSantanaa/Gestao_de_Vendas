@@ -1,0 +1,22 @@
+.btn-editar{
+    background-color: var(--amarelo-medio);
+    color: var(--branco);
+    border: none;
+    border-radius: 50px;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-deletar{
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    border-radius: 50px;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

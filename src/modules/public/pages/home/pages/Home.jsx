@@ -56,10 +56,10 @@ export const Home = () => {
         getProduto();
       },[]);
 
-        async function deleteProduto(id){
-        const produtoDoc = doc(db, 'listaDeProdutos', id);
-        await deleteDoc(produtoDoc);
-      } 
+      //   async function deleteProduto(id){
+      //   const produtoDoc = doc(db, 'listaDeProdutos', id);
+      //   await deleteDoc(produtoDoc);
+      // } 
 
       // var nome = ['Leticia', 'Beatriz', 'Ana']
       // const listaOrdenada = nome.sort(Intl.Collator().compare)
@@ -115,9 +115,9 @@ export const Home = () => {
                                 <TableCell align="center">
                                   <input type="Checkbox" onClick={() => selecionarProduto(produto.id)}/>
                                   </TableCell>
-                                  <TableCell align="center">
+                                  {/* <TableCell align="center">
                                     <button onClick={() => deleteProduto(produto.id)}>Deletar</button>
-                                  </TableCell>
+                                  </TableCell> */}
 
                                </TableRow>
                         
