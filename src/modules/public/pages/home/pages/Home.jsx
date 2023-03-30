@@ -81,7 +81,9 @@ export const Home = () => {
                                 type="search" 
                                 placeholder="Pesquisar Produto" 
                                 value={busca}
-                                onChange={(e) => setBusca(e.target.value)}/> 
+                                onChange={(e) => setBusca(e.target.value)}
+                                className="input-de-pesquisa__BalcaoDeVendas"
+                                /> 
                         </div>
                 </section>   
                 <TableContainer 
