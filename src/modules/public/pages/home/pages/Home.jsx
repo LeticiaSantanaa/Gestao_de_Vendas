@@ -56,6 +56,7 @@ export const Home = () => {
         getProduto();
       },[]);
 
+      //testanto
       //   async function deleteProduto(id){
       //   const produtoDoc = doc(db, 'listaDeProdutos', id);
       //   await deleteDoc(produtoDoc);
@@ -82,7 +83,6 @@ export const Home = () => {
                                 placeholder="Pesquisar Produto" 
                                 value={busca}
                                 onChange={(e) => setBusca(e.target.value)}
-                                className="input-de-pesquisa__BalcaoDeVendas"
                                 /> 
                         </div>
                 </section>   
