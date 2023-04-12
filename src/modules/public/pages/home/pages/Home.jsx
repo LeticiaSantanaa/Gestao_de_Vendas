@@ -56,7 +56,7 @@ export const Home = () => {
         getProduto();
       },[]);
 
-      //testanto
+      //testando
       //   async function deleteProduto(id){
       //   const produtoDoc = doc(db, 'listaDeProdutos', id);
       //   await deleteDoc(produtoDoc);
